@@ -6,7 +6,7 @@ export default function UpcomingPage() {
         <div id="content">
             <div className="box">
                 <div className="head">
-                    <h2>UPCOMING</h2>
+                    <h2>Upcoming</h2>
                 </div>
 
                 <div className="anime-cards">

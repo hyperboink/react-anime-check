@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Card from './Card'
 import { day } from './utils/Date'
-import { daysOftheWeek } from './Constants'
+import { DAYS_OF_THE_WEEK } from './Constants'
 
 export default function Scheduled() {
     const [scheduled, setScheduled] = useState([])
-    const allScheduledByDays = daysOftheWeek.concat(['other', 'unknown'])
+    const allScheduledByDays = DAYS_OF_THE_WEEK.concat(['other', 'unknown'])
 
     useEffect(() =>{
         axios.get('https://api.jikan.moe/v3/schedule')

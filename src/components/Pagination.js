@@ -1,27 +1,39 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { useHistory } from "react-router-dom"
-import { paginate } from '../actions/paginate'
-import { baseUrl, range } from './utils/Utils'
+import { Link } from "react-router-dom"
+import { baseUrl, range, debounce } from './utils/Utils'
+import { BREAKPOINTS } from './Constants';
 import { config } from '../config'
 
 export default function Pagination({data}) {
-    const history = useHistory()
-    const { id, page } = useParams()
-    const dispatch = useDispatch()
+    const [dimension, setDimension] = useState({ 
+        width: window.innerWidth
+    })
+
+    useEffect(_ => {
+        const debouncedHandleResize = debounce(_ =>
+            setDimension({
+                width: window.innerWidth
+            })
+        , 200)
+
+        window.addEventListener('resize', debouncedHandleResize)
+    
+        return _ => {
+          window.removeEventListener('resize', debouncedHandleResize)
+        }
+    }, [])
+
     const { pagination } = config
+
+    let limit = Object.entries(data.responsive || {}).find(([key]) => dimension.width <= BREAKPOINTS[key])
+    limit = (limit ? limit[1] : null) || pagination.navigation.limit || 10
+
+    const { id, page } = useParams()
     const currentIndex = parseInt(page)
     const paginationTotal = Math.ceil(data.total / 100)
-    const limit = pagination.navigation.limit
     const moveTrigger = Math.ceil(limit / 2)
     const offset = currentIndex + moveTrigger
-
-    const handlePaginationByAjax = (pageIndex) => {
-        dispatch(paginate(data))
-        history.push(`${data.baseLink + id || ''}/${pageIndex}`)
-    }
-
     const paginationLink = () => {
 
         let minActive = currentIndex - (limit - 2)
@@ -47,14 +59,9 @@ export default function Pagination({data}) {
             maxActive = paginationTotal
         }
 
-        return range(minActive, maxActive).map((v) => (
-            <a key={v} href={baseUrl() + (data.baseLink + id || '') + '/' + v} className={'anime-pagination-link' + (currentIndex === v ? ' current': '')} onClick={(e) => {
-                if(pagination.navigation.byRouter){
-                    e.preventDefault()
-                    handlePaginationByAjax(v)
-                }
-            }}>{v}</a>
-        ))
+        return range(minActive, maxActive).map((num) => 
+            <Link key={num} to={baseUrl() + (data.baseLink + id || '') + '/' + num} className={'anime-pagination-link' + (currentIndex === num ? ' current': '')}>{num}</Link>
+        )
     }
     
     return (
@@ -64,19 +71,8 @@ export default function Pagination({data}) {
                 <>
                     {currentIndex !== 1 ? (
                         <>
-                            <a href={baseUrl() + data.baseLink + id + '/1'} className="anime-pagination-link prev controls" onClick={(e) => {
-                                if(pagination.navigation.byRouter){
-                                    e.preventDefault()
-                                    handlePaginationByAjax(1)
-                                }
-                            }}>&lt;&lt;</a>
-
-                            <a className='anime-pagination-link prev controls' href={baseUrl() + data.baseLink + id + '/' + (currentIndex - 1)} onClick={(e) => {
-                                if(pagination.navigation.byRouter){
-                                    e.preventDefault()
-                                    handlePaginationByAjax(currentIndex - 1)
-                                }
-                            }}>&lt;</a>
+                            <Link to={baseUrl() + data.baseLink + id + '/1'} className="anime-pagination-link prev controls">&lt;&lt;</Link>
+                            <Link className='anime-pagination-link prev controls' to={baseUrl() + data.baseLink + id + '/' + (currentIndex - 1)}>&lt;</Link>
                         </>
                     ) : ''}
 
@@ -84,19 +80,8 @@ export default function Pagination({data}) {
 
                     {currentIndex < paginationTotal ? (
                         <>
-                            <a className='anime-pagination-link next controls' href={baseUrl() + data.baseLink + id + '/' + (currentIndex + 1)} onClick={(e) => {
-                                if(pagination.navigation.byRouter){
-                                    e.preventDefault()
-                                    handlePaginationByAjax(currentIndex + 1)
-                                }
-                            }}>&gt;</a>
-
-                            <a href={baseUrl() + data.baseLink + id + '/' + paginationTotal} className="anime-pagination-link prev controls" onClick={(e) => {
-                                if(pagination.navigation.byRouter){
-                                    e.preventDefault()
-                                    handlePaginationByAjax(paginationTotal)
-                                }
-                            }}>&gt;&gt;</a>
+                            <Link className='anime-pagination-link next controls' to={baseUrl() + data.baseLink + id + '/' + (currentIndex + 1)}>&gt;</Link>
+                            <Link to={baseUrl() + data.baseLink + id + '/' + paginationTotal} className="anime-pagination-link prev controls">&gt;&gt;</Link>
                         </>
                     ) : ''}
         

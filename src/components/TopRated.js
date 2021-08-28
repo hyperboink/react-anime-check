@@ -8,7 +8,6 @@ export default function TopRated() {
     const [topRated, setTopRated] = useState([])
     const { type } = useParams()
     const param = type ? type : 'anime'
-    const paramUppercase = param.toUpperCase()
 
     useEffect(() =>{
         axios.get('https://api.jikan.moe/v3/top/' + param)
@@ -20,7 +19,7 @@ export default function TopRated() {
         <div id="content">
             <div className="box">
                 <div className="head">
-                    <h2>TOP RATED {paramUppercase}</h2>
+                    <h2 className="text-capitalize">Top Rated 50 {param}</h2>
                 </div>
 
                 <div className="anime-cards">

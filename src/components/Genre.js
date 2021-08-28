@@ -33,15 +33,17 @@ export default function Genre() {
     return (
         <>
             <div className="head flex anime-pagination-head">
-                <h1>{genre.mal_url ? 'Genre: ' + genre.mal_url.name : ''}</h1>
+                <h2>{genre.mal_url ? 'Genre: ' + genre.mal_url.name : ''}</h2>
 
                 <div className="anime-card-pagination">
                     {genre.item_count ? (
                         <Pagination data={{
                             total: genre.item_count,
                             items: genre.anime,
-                            baseLink: '/genre/anime/',
-                            byRouter: true
+                            baseLink: 'genre/anime/',
+                            responsive: {
+                                mobile: 4
+                            }
                         }}/>
                     ) : ''}
                 </div>
@@ -63,8 +65,7 @@ export default function Genre() {
                     <Pagination data={{
                         total: genre.item_count,
                         items: genre.anime,
-                        baseLink: '/genre/anime/',
-                        byRouter: true
+                        baseLink: 'genre/anime/'
                     }}/>
                 ) : ''}
             </div>

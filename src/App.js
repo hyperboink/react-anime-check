@@ -1,5 +1,5 @@
 import './App.css'
-import { Switch, Route, BrowserRouter } from "react-router-dom"
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom"
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Homepage from './pages/HomePage'
@@ -14,7 +14,7 @@ import PageNotFound from './pages/PageNotFound'
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="wrap">
           <Header/>
 
@@ -34,7 +34,7 @@ function App() {
 
           <Footer/>
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
