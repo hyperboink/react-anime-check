@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../components/Search'
-import { debounce, baseUrl } from '../components/utils/Utils'
+import { debounce } from '../components/utils/Utils'
 
 export default function Header() {
     const [offset, setOffset] = useState(window.pageYOffset)
@@ -31,7 +31,7 @@ export default function Header() {
             <div id="header">
                 <div className="header-top clear">
                     <h1 id="logo" className="left">
-                        <Link to={baseUrl()}>AnimeCheck</Link>
+                        <Link to="/">AnimeCheck</Link>
                     </h1>
 
                     <div className="header-right right" ref={scrollToTopRef}>
@@ -40,12 +40,12 @@ export default function Header() {
                 </div>
                 <div id="navigation">
                     <ul>
-                        <li><Link to={baseUrl()}>LATEST</Link></li>
-                        <li><Link to={baseUrl() + 'upcoming'}>UPCOMING</Link></li>
-                        <li><Link to={baseUrl() + 'top-rated'}>TOP RATED</Link></li>
-                        <li><Link to={baseUrl() + 'top-rated/characters'}>CHARACTER RANKING</Link></li>
-                        <li><Link to={baseUrl() + 'genres'}>GENRES</Link></li>
-                        <li><Link to={baseUrl() + 'top-rated/manga'}>MANGA</Link></li>
+                        <li><Link to="/">LATEST</Link></li>
+                        <li><Link to="/upcoming">UPCOMING</Link></li>
+                        <li><Link to="/top-rated">TOP RATED</Link></li>
+                        <li><Link to="/top-rated/characters">CHARACTER RANKING</Link></li>
+                        <li><Link to="/genres">GENRES</Link></li>
+                        <li><Link to="/top-rated/manga">MANGA</Link></li>
                     </ul>
                 </div>
             </div>

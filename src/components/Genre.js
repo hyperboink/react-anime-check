@@ -40,7 +40,7 @@ export default function Genre() {
                         <Pagination data={{
                             total: genre.item_count,
                             items: genre.anime,
-                            baseLink: 'genre/anime/',
+                            baseLink: '/genre/anime/',
                             responsive: {
                                 mobile: 4
                             }
@@ -65,7 +65,10 @@ export default function Genre() {
                     <Pagination data={{
                         total: genre.item_count,
                         items: genre.anime,
-                        baseLink: 'genre/anime/'
+                        baseLink: '/genre/anime/',
+                        responsive: {
+                            mobile: 4
+                        }
                     }}/>
                 ) : ''}
             </div>

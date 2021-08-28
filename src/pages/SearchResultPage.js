@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
+import { getParameterByName } from '../components/utils/Utils';
 
 export default function SearchResultPage() {
     const [search, setSearch] = useState([])
     const [loading, setLoading] = useState(true)
     const params = new URLSearchParams(useLocation().search)
-    const query = params.get('q')
+    const winLocation = window.location.href
+    const query = /github/.test(winLocation) ? getParameterByName('q', winLocation) : params.get('q')
 
     useEffect(() =>{
         axios.get('https://api.jikan.moe/v3/search/anime?q=' + query, {timeout: 6000})
@@ -26,14 +29,14 @@ export default function SearchResultPage() {
                 search.results && search.results.length ? search.results.map((result) => (
                     <div key={result.mal_id} className="search-result flex">
                         <div className="search-left">
-                            <a className="anime-link" href={'//page/anime/' + result.mal_id}>
+                            <Link className="anime-link" to={'/page/anime/' + result.mal_id}>
                                 <img src={result.image_url} alt="" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="search-right">
-                            <h3><a className="anime-link" href={'/page/anime/' + result.mal_id}>{result.title}</a></h3>
+                            <h3><Link className="anime-link" to={'/page/anime/' + result.mal_id}>{result.title}</Link></h3>
                             <p className="anime-excerpt">{result.synopsis}</p>
-                            <a className="anime-btn" href={'/page/anime/' + result.mal_id}>Read More</a>
+                            <Link className="anime-btn" to={'/page/anime/' + result.mal_id}>Read More</Link>
                         </div>
                     </div>
                 )) : (

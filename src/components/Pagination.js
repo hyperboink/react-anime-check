@@ -60,7 +60,7 @@ export default function Pagination({data}) {
         }
 
         return range(minActive, maxActive).map((num) => 
-            <Link key={num} to={baseUrl() + (data.baseLink + id || '') + '/' + num} className={'anime-pagination-link' + (currentIndex === num ? ' current': '')}>{num}</Link>
+            <Link key={num} to={(data.baseLink + id || '') + '/' + num} className={'anime-pagination-link' + (currentIndex === num ? ' current': '')}>{num}</Link>
         )
     }
     
@@ -71,8 +71,8 @@ export default function Pagination({data}) {
                 <>
                     {currentIndex !== 1 ? (
                         <>
-                            <Link to={baseUrl() + data.baseLink + id + '/1'} className="anime-pagination-link prev controls">&lt;&lt;</Link>
-                            <Link className='anime-pagination-link prev controls' to={baseUrl() + data.baseLink + id + '/' + (currentIndex - 1)}>&lt;</Link>
+                            <Link to={data.baseLink + id + '/1'} className="anime-pagination-link prev controls">&lt;&lt;</Link>
+                            <Link className='anime-pagination-link prev controls' to={data.baseLink + id + '/' + (currentIndex - 1)}>&lt;</Link>
                         </>
                     ) : ''}
 
@@ -80,8 +80,8 @@ export default function Pagination({data}) {
 
                     {currentIndex < paginationTotal ? (
                         <>
-                            <Link className='anime-pagination-link next controls' to={baseUrl() + data.baseLink + id + '/' + (currentIndex + 1)}>&gt;</Link>
-                            <Link to={baseUrl() + data.baseLink + id + '/' + paginationTotal} className="anime-pagination-link prev controls">&gt;&gt;</Link>
+                            <Link className='anime-pagination-link next controls' to={data.baseLink + id + '/' + (currentIndex + 1)}>&gt;</Link>
+                            <Link to={data.baseLink + id + '/' + paginationTotal} className="anime-pagination-link prev controls">&gt;&gt;</Link>
                         </>
                     ) : ''}
         

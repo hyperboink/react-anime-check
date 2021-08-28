@@ -1,5 +1,5 @@
 import './App.css'
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom"
+import { Switch, Route, HashRouter as Router } from "react-router-dom"
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Homepage from './pages/HomePage'
@@ -14,7 +14,7 @@ import PageNotFound from './pages/PageNotFound'
 function App() {
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <div className="wrap">
           <Header/>
 
@@ -26,7 +26,7 @@ function App() {
                 <Route path="/top-rated" component={TopRatedPage}></Route>
                 <Route path="/genres" component={GenreListPage}></Route>
                 <Route path="/genre/anime/:id/:page" component={GenrePage}></Route>
-                <Route path="/page/:type/:id" component={SinglePage}></Route>
+                <Route path="/page/:type/:id" component={SinglePage} ></Route>
                 <Route path="/search" component={SearchResultPage}></Route>
                 <Route component={PageNotFound} />
             </Switch>

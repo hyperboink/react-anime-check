@@ -1,33 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SeparateArrayToLink } from '../components/utils/Utils'
-import { useParams } from "react-router-dom"
-import { baseUrl } from '../components/utils/Utils'
+import { useParams, useHistory } from "react-router-dom"
 
 export default function Card({detail}) {
     const { type } = useParams()
+    const history = useHistory()
     const param = type ? type : 'anime'
     const isAnime = param === 'anime'
     const isManga = param === 'manga'
     const isCharacters = param === 'characters'
+    const redirectToPage = (e) => {
+        e.preventDefault()
+        history.push('/page/'+param+'/' + detail.mal_id)
+    }
 
     return (
         <div className="anime anime-card">
             <div className="anime-image">
-                <Link to={baseUrl() + 'page/'+param+'/' + detail.mal_id} className="anime-card-link" >
+                <a href={'page/'+param+'/' + detail.mal_id} className="anime-card-link" onClick={redirectToPage}>
                     <img src={detail.image_url} alt=""/>
                     {isAnime ? <span className="anime-eps">{detail.episodes ? `${detail.episodes} EPS` : '?? EPS'}</span> : ''}
                     
-                </Link>
+                </a>
                 {isCharacters ? (
                     <span className="character-rank-tag">#{detail.rank}</span>
                 ) : ''}
 
                 <div className={'card-title anime-title' + (isCharacters ? ' character-name' : '')}>
-                    <Link className="anime-link" to={'/page/'+param+'/' + detail.mal_id}>{detail.title}</Link>
+                    <a className="anime-link" href={'/page/'+param+'/' + detail.mal_id} onClick={redirectToPage}>{detail.title}</a>
                 </div>
                 {detail.genres ?(
-                    <div className="anime-genre">{SeparateArrayToLink(detail.genres, {separator: '', link: baseUrl() + 'genre/anime/', page: '/1'})}</div>
+                    <div className="anime-genre">{SeparateArrayToLink(detail.genres, {separator: '', link: 'genre/anime/', page: '/1'})}</div>
                 ) : ''}
             </div>
             

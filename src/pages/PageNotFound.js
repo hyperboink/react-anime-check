@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { baseUrl } from '../components/utils/Utils'
 
 export default function PageNotFound() {
     return (
@@ -6,7 +8,7 @@ export default function PageNotFound() {
             <div className="text-center">
                 <h1>Error 404</h1>
                 <p>You are lost! The page your are looking for could not be found.</p>
-                <a className="anime-link" href="/">Go to Home?</a>
+                <Link className="anime-link" to={baseUrl()}>Go to Home?</Link>
             </div>
         </div>
     )
