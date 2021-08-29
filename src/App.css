@@ -361,7 +361,7 @@ h1#logo a {
 	display: inline-block !important;
 	height: auto !important;
 	width: auto !important;
-	color: #ff5959;
+	color: #e95370;
 	text-decoration: none;
 }
 .anime-link:hover{
@@ -424,7 +424,7 @@ h1#logo a {
 	padding: 20px 0;
 }
 .page-title{
-	color: #ff5757;
+	color: #e95370;
     margin: 0 0 10px;
     padding: 10px 10px;
     border-bottom: dashed 1px #ddd;
