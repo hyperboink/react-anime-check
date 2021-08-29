@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { Link } from "react-router-dom"
-import { baseUrl, range, debounce } from './utils/Utils'
+import { range, debounce } from './utils/Utils'
 import { BREAKPOINTS } from './Constants';
 import { config } from '../config'
 

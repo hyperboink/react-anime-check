@@ -42,7 +42,7 @@ export default function Genre() {
                             items: genre.anime,
                             baseLink: '/genre/anime/',
                             responsive: {
-                                mobile: 4
+                                mobile: 3
                             }
                         }}/>
                     ) : ''}
@@ -67,7 +67,7 @@ export default function Genre() {
                         items: genre.anime,
                         baseLink: '/genre/anime/',
                         responsive: {
-                            mobile: 4
+                            mobile: 3
                         }
                     }}/>
                 ) : ''}
