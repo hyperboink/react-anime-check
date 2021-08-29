@@ -29,7 +29,7 @@ export default function SinglePage() {
                             <li>Aired: {anime.aired ? formatDate(anime.aired.from) : '??'} - {anime.aired && anime.aired.to ? formatDate(anime.aired.to) : '??'}</li>
                             <li>Type: {anime.type}</li>
                             <li>Episodes: {anime.episodes || '??'}</li>
-                            <li>Genre: {SeparateArrayToLink(anime.genres, {separator: ' / ', link: '/genre/anime/', page: '/1'})}</li>
+                            <li>Genre: {SeparateArrayToLink(anime.genres, {separator: ' / ', link: 'genre/anime/', page: '/1'})}</li>
                             <li>Producers: {SeparateArrayToLink(anime.producers, {separator: ', '})}</li>
                             <li>Studios: {SeparateArrayToLink(anime.studios, {separator: ', '})}</li>
                             <li>Licensors: {anime.licensors && anime.licensors.length ? SeparateArrayToLink(anime.licensors, {separator: ', '}): 'NA'}</li>
@@ -64,7 +64,7 @@ export default function SinglePage() {
                                     <strong>{key}: </strong>
                                     {SeparateArrayToLink(related, {
                                         separator: ', ',
-                                        link: '/page/',
+                                        link: 'page/',
                                         subType: true
                                     })}
                                     </div>

@@ -35,7 +35,7 @@ export const range = (start, end) => {
 export const SeparateArrayToLink = (array, options) => {
     return ReactHtmlParser(array ? array.map(arr => {
         let type = options.subType ? `${arr.type}/` : '';
-        return options.link ? `<a class="anime-link" href="#/${options.link || ''}${type}${arr.mal_id || ''}${options.page || ''}">${arr.name || ''}</a>` : (arr.name || '')
+        return options.link ? `<a class="anime-link" href="${options.link || ''}${type}${arr.mal_id || ''}${options.page || ''}">${arr.name || ''}</a>` : (arr.name || '')
     }).join(options.separator) : '')
 }
 
