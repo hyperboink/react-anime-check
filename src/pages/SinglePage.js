@@ -14,7 +14,7 @@ export default function SinglePage() {
             .then((res) => setAnime(res.data))
             .catch(err => console.log(err))
     }, [type, pageType, id])
-
+console.log(anime)
     return (
         <div className="single-page flex">
             <div className="single-page-side">
@@ -25,6 +25,7 @@ export default function SinglePage() {
                 {pageType !== 'character' ? (
                     <div className="single-page-side-info">
                         <ul>
+                            <li>English Title: {anime.title_english}</li>
                             <li>Status: {anime.status}</li>
                             <li>Aired: {anime.aired ? formatDate(anime.aired.from) : '??'} - {anime.aired && anime.aired.to ? formatDate(anime.aired.to) : '??'}</li>
                             <li>Type: {anime.type}</li>
