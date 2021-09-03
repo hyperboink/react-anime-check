@@ -7,3 +7,5 @@ export const BREAKPOINTS = {
     mobile: 480,
     smallMobile: 320
 }
+
+export const BASE_API = 'https://api.jikan.moe/v3'

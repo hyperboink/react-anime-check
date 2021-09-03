@@ -1,17 +1,26 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
 import Card from './Card'
 import { day } from './utils/Date'
 import { DAYS_OF_THE_WEEK } from './Constants'
+import { getScheduled } from '../services/anime'
 
 export default function Scheduled() {
     const [scheduled, setScheduled] = useState([])
     const allScheduledByDays = DAYS_OF_THE_WEEK.concat(['other', 'unknown'])
 
     useEffect(() =>{
-        axios.get('https://api.jikan.moe/v3/schedule')
-            .then((res) =>  setScheduled(res.data))
+        let unmount = false
+
+        getScheduled()
+            .then((res) => {
+                if(unmount) return
+                setScheduled(res.data)
+            })
             .catch(err => console.log(err))
+
+        return _ => {
+            unmount = true
+        }
     }, [])
 
     return (

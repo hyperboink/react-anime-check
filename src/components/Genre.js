@@ -1,33 +1,33 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, useHistory } from 'react-router'
-import axios from 'axios'
 import Card from './Card'
 import Pagination from './Pagination'
 import Loader from './Loader'
+import { getGenre } from '../services/anime'
 
 export default function Genre() {
-    
     const [genre, setGenre] = useState({})
     const [isLoading, setLoading] = useState(true)
     const { id, page }  = useParams()
     const history = useHistory()
 
     useEffect(() =>{
-        const getGenres = async() => {
-            setLoading(true)
-            try{
-                const res = await axios(`https://api.jikan.moe/v3/genre/anime/${id}/${page}`)
-                setGenre(res.data)
-                setLoading(false)
-                
-            }catch(err){
-                console.log(err);
-                setLoading(false)
-                history.goBack()
-            }
-        }
+        let unmount = false
+        setLoading(true)
 
-        getGenres()
+        getGenre(id, page).then((res) => {
+            if(unmount) return
+            setGenre(res.data)
+            setLoading(false)
+        }).catch((err) => {
+            console.log(err);
+            setLoading(false)
+            history.goBack()
+        })
+
+        return _ => {
+            unmount = true
+        }
     }, [id, page, history])
 
     return (

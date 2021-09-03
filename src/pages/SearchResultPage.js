@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import { getParameterByName } from '../components/utils/Utils';
+import { searchAnime } from '../services/anime';
 
 export default function SearchResultPage() {
     const [search, setSearch] = useState([])
@@ -12,13 +12,20 @@ export default function SearchResultPage() {
     const winLocation = window.location.href
     const query = /github/.test(winLocation) ? getParameterByName('q', winLocation) : params.get('q')
 
-    useEffect(() =>{
-        axios.get('https://api.jikan.moe/v3/search/anime?q=' + query, {timeout: 6000})
+    useEffect(() => {
+        let unmount = false
+
+        searchAnime(query, 6000)
             .then((res) => {
+                if(unmount) return
                 setSearch(res.data)
                 setLoading(false)
             })
             .catch(err => setLoading(false))
+        
+        return _ => {
+            unmount = true
+        }
     }, [query])
 
     return (

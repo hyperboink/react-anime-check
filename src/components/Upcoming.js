@@ -1,15 +1,23 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
 import Card from './Card'
+import { getUpcoming } from '../services/anime'
 
 export default function Upcoming() {
-
     const [upcoming, setUpcoming] = useState([])
 
     useEffect(() =>{
-        axios.get('https://api.jikan.moe/v3/season/later')
-            .then((res) => setUpcoming(res.data))
+        let unmount = false
+
+        getUpcoming()
+            .then((res) => {
+                if(unmount) return
+                setUpcoming(res.data)
+            })
             .catch(err => console.log(err))
+        
+        return _ => {
+            unmount = true
+        }
     }, [])
 
     return (

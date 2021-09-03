@@ -1,18 +1,26 @@
 import React, {useState, useEffect} from 'react'
-import { useParams } from "react-router-dom"
-import axios from 'axios'
+import { useParams } from 'react-router-dom'
 import Card from './Card'
+import { getTopRated } from '../services/anime'
 
 export default function TopRated() {
-
     const [topRated, setTopRated] = useState([])
     const { type } = useParams()
     const param = type ? type : 'anime'
 
-    useEffect(() =>{
-        axios.get('https://api.jikan.moe/v3/top/' + param)
-            .then((res) => setTopRated(res.data))
+    useEffect(() => {
+        let unmount = false
+
+        getTopRated(param)
+            .then((res) => {
+                if(unmount) return
+                setTopRated(res.data)
+            })
             .catch(err => console.log(err))
+        
+        return _ => {
+            unmount = true
+        }
     }, [param])
 
     return (
