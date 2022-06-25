@@ -1,16 +1,19 @@
-const searchReducer = (state = {}, action) => {
+const initialState = {
+    keyword: '',
+    results: []
+}
+
+const search = (state = initialState, action) => {
     switch(action.type){
-        case 'SEARCH_ANIME':
-            return {...state, action}
-        case 'SEARCH_MANGA':
-            return {...state, action}
-        case 'SEARCH_CHARACTER':
-            return {...state, action}
-        case 'SEARCH_PEOPLE':
-            return {...state, action}
+        case 'SET_SEARCH_RESULT':
+            return {
+                ...state,
+                keyword: action.keyword,
+                results: action.results
+            }
         default:
-            return state 
+            return state
     }
 }
 
-export default searchReducer
+export default search

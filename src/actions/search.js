@@ -1,7 +1,12 @@
-export const searchAnime = (data) => {
-    return {
-        type: 'SEARCH_ANIME',
-        keyword: data.keyword,
-        payload: data.payload
-    }
-}
+export const SEARCH = 'SEARCH'
+
+export const search = (keyword) => ({
+    type: SEARCH,
+    keyword
+})
+
+export const setSearchResult = (keyword, results) => ({
+    type: 'SET_SEARCH_RESULT',
+    keyword,
+    results
+})

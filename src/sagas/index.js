@@ -3,12 +3,14 @@ import scheduled from "./scheduled"
 import upcoming from './upcoming'
 import topRated from './topRated'
 import genre from './genre'
+import search from "./search"
 
 export function* rootSaga(){
     yield all([
         scheduled(),
         upcoming(),
         topRated(),
-        genre()
+        genre(),
+        search()
     ])
 }
