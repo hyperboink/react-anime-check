@@ -1,20 +1,36 @@
 {
   "files": {
-    "main.css": "/react-anime-check/static/css/main.6d121885.chunk.css",
-    "main.js": "/react-anime-check/static/js/main.f81ab578.chunk.js",
-    "main.js.map": "/react-anime-check/static/js/main.f81ab578.chunk.js.map",
-    "runtime-main.js": "/react-anime-check/static/js/runtime-main.1a1fa081.js",
-    "runtime-main.js.map": "/react-anime-check/static/js/runtime-main.1a1fa081.js.map",
-    "static/js/2.e0f42a55.chunk.js": "/react-anime-check/static/js/2.e0f42a55.chunk.js",
-    "static/js/2.e0f42a55.chunk.js.map": "/react-anime-check/static/js/2.e0f42a55.chunk.js.map",
+    "main.css": "/react-anime-check/static/css/main.200f142f.chunk.css",
+    "main.js": "/react-anime-check/static/js/main.efabc1fe.chunk.js",
+    "main.js.map": "/react-anime-check/static/js/main.efabc1fe.chunk.js.map",
+    "runtime-main.js": "/react-anime-check/static/js/runtime-main.14a28443.js",
+    "runtime-main.js.map": "/react-anime-check/static/js/runtime-main.14a28443.js.map",
+    "static/js/2.b9a38505.chunk.js": "/react-anime-check/static/js/2.b9a38505.chunk.js",
+    "static/js/2.b9a38505.chunk.js.map": "/react-anime-check/static/js/2.b9a38505.chunk.js.map",
+    "static/js/3.de23351b.chunk.js": "/react-anime-check/static/js/3.de23351b.chunk.js",
+    "static/js/3.de23351b.chunk.js.map": "/react-anime-check/static/js/3.de23351b.chunk.js.map",
+    "static/js/4.8b8d3768.chunk.js": "/react-anime-check/static/js/4.8b8d3768.chunk.js",
+    "static/js/4.8b8d3768.chunk.js.map": "/react-anime-check/static/js/4.8b8d3768.chunk.js.map",
+    "static/js/5.f3011eef.chunk.js": "/react-anime-check/static/js/5.f3011eef.chunk.js",
+    "static/js/5.f3011eef.chunk.js.map": "/react-anime-check/static/js/5.f3011eef.chunk.js.map",
+    "static/js/6.4762afba.chunk.js": "/react-anime-check/static/js/6.4762afba.chunk.js",
+    "static/js/6.4762afba.chunk.js.map": "/react-anime-check/static/js/6.4762afba.chunk.js.map",
+    "static/js/7.057706cc.chunk.js": "/react-anime-check/static/js/7.057706cc.chunk.js",
+    "static/js/7.057706cc.chunk.js.map": "/react-anime-check/static/js/7.057706cc.chunk.js.map",
+    "static/js/8.4dee4675.chunk.js": "/react-anime-check/static/js/8.4dee4675.chunk.js",
+    "static/js/8.4dee4675.chunk.js.map": "/react-anime-check/static/js/8.4dee4675.chunk.js.map",
+    "static/js/9.b6370d25.chunk.js": "/react-anime-check/static/js/9.b6370d25.chunk.js",
+    "static/js/9.b6370d25.chunk.js.map": "/react-anime-check/static/js/9.b6370d25.chunk.js.map",
+    "static/js/10.ebe7d1f8.chunk.js": "/react-anime-check/static/js/10.ebe7d1f8.chunk.js",
+    "static/js/10.ebe7d1f8.chunk.js.map": "/react-anime-check/static/js/10.ebe7d1f8.chunk.js.map",
     "index.html": "/react-anime-check/index.html",
-    "static/css/main.6d121885.chunk.css.map": "/react-anime-check/static/css/main.6d121885.chunk.css.map",
-    "static/js/2.e0f42a55.chunk.js.LICENSE.txt": "/react-anime-check/static/js/2.e0f42a55.chunk.js.LICENSE.txt"
+    "static/css/main.200f142f.chunk.css.map": "/react-anime-check/static/css/main.200f142f.chunk.css.map",
+    "static/js/2.b9a38505.chunk.js.LICENSE.txt": "/react-anime-check/static/js/2.b9a38505.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1a1fa081.js",
-    "static/js/2.e0f42a55.chunk.js",
-    "static/css/main.6d121885.chunk.css",
-    "static/js/main.f81ab578.chunk.js"
+    "static/js/runtime-main.14a28443.js",
+    "static/js/2.b9a38505.chunk.js",
+    "static/css/main.200f142f.chunk.css",
+    "static/js/main.efabc1fe.chunk.js"
   ]
 }
