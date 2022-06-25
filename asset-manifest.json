@@ -3,8 +3,8 @@
     "main.css": "/react-anime-check/static/css/main.200f142f.chunk.css",
     "main.js": "/react-anime-check/static/js/main.84db4dd5.chunk.js",
     "main.js.map": "/react-anime-check/static/js/main.84db4dd5.chunk.js.map",
-    "runtime-main.js": "/react-anime-check/static/js/runtime-main.f889d079.js",
-    "runtime-main.js.map": "/react-anime-check/static/js/runtime-main.f889d079.js.map",
+    "runtime-main.js": "/react-anime-check/static/js/runtime-main.682dd4bc.js",
+    "runtime-main.js.map": "/react-anime-check/static/js/runtime-main.682dd4bc.js.map",
     "static/js/2.d1f52152.chunk.js": "/react-anime-check/static/js/2.d1f52152.chunk.js",
     "static/js/2.d1f52152.chunk.js.map": "/react-anime-check/static/js/2.d1f52152.chunk.js.map",
     "static/js/3.482709a0.chunk.js": "/react-anime-check/static/js/3.482709a0.chunk.js",
@@ -21,14 +21,14 @@
     "static/js/8.1c15cdef.chunk.js.map": "/react-anime-check/static/js/8.1c15cdef.chunk.js.map",
     "static/js/9.c3b479b8.chunk.js": "/react-anime-check/static/js/9.c3b479b8.chunk.js",
     "static/js/9.c3b479b8.chunk.js.map": "/react-anime-check/static/js/9.c3b479b8.chunk.js.map",
-    "static/js/10.066ace2f.chunk.js": "/react-anime-check/static/js/10.066ace2f.chunk.js",
-    "static/js/10.066ace2f.chunk.js.map": "/react-anime-check/static/js/10.066ace2f.chunk.js.map",
+    "static/js/10.08c19276.chunk.js": "/react-anime-check/static/js/10.08c19276.chunk.js",
+    "static/js/10.08c19276.chunk.js.map": "/react-anime-check/static/js/10.08c19276.chunk.js.map",
     "index.html": "/react-anime-check/index.html",
     "static/css/main.200f142f.chunk.css.map": "/react-anime-check/static/css/main.200f142f.chunk.css.map",
     "static/js/2.d1f52152.chunk.js.LICENSE.txt": "/react-anime-check/static/js/2.d1f52152.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f889d079.js",
+    "static/js/runtime-main.682dd4bc.js",
     "static/js/2.d1f52152.chunk.js",
     "static/css/main.200f142f.chunk.css",
     "static/js/main.84db4dd5.chunk.js"
