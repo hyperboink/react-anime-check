@@ -4,14 +4,6 @@ import './App.css'
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Loader from "./components/Loader"
-// import Homepage from './pages/HomePage'
-// import UpcomingPage from './pages/UpcomingPage'
-// import TopRatedPage from './pages/TopRatedPage'
-// import GenreListPage from './pages/GenreListPage'
-// import GenrePage from './pages/GenrePage'
-// import SinglePage from './pages/SinglePage'
-// import SearchResultPage from './pages/SearchResultPage'
-// import PageNotFound from './pages/PageNotFound'
 
 const Homepage = React.lazy(() => import('./pages/HomePage'))
 const UpcomingPage = React.lazy(() => import('./pages/UpcomingPage'))
@@ -31,17 +23,17 @@ function App() {
 
           <div id="main">
             <Suspense fallback={<Loader />}>
-            <Switch>
-                <Route exact path="/" component={Homepage}></Route>
-                <Route path="/upcoming" component={UpcomingPage}></Route>
-                <Route path="/top-rated/:type" component={TopRatedPage}></Route>
-                <Route path="/top-rated" component={TopRatedPage}></Route>
-                <Route path="/genres" component={GenreListPage}></Route>
-                <Route path="/genre/anime/:id/:page" component={GenrePage}></Route>
-                <Route path="/page/:type/:id" component={SinglePage} ></Route>
-                <Route path="/search" component={SearchResultPage}></Route>
-                <Route component={PageNotFound} />
-            </Switch>
+              <Switch>
+                  <Route exact path="/" component={Homepage}></Route>
+                  <Route path="/upcoming" component={UpcomingPage}></Route>
+                  <Route path="/top-rated/:type" component={TopRatedPage}></Route>
+                  <Route path="/top-rated" component={TopRatedPage}></Route>
+                  <Route path="/genres" component={GenreListPage}></Route>
+                  <Route path="/genre/anime/:id/:page" component={GenrePage}></Route>
+                  <Route path="/page/:type/:id" component={SinglePage} ></Route>
+                  <Route path="/search" component={SearchResultPage}></Route>
+                  <Route component={PageNotFound} />
+              </Switch>
             </Suspense>
           </div>
 

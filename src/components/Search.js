@@ -5,16 +5,16 @@ import { search } from '../actions/search'
 
 export default function Search() {
     const dispatch = useDispatch()
-    const searchInput = useRef()
     const history = useHistory()
-
+    const searchInput = useRef()
     const submitSearch = (e) => {
+        const { value } = searchInput.current
+
         e.preventDefault();
 
-        if(searchInput.current.value){
-            dispatch(search(searchInput.current.value))
-            history.push(`/search/anime?q=${searchInput.current.value}`)
-            searchInput.current.value = ''
+        if(value){
+            dispatch(search(value))
+            history.push(`/search/anime?q=${value}`)
         }        
     }
 

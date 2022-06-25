@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { BASE_API } from '../components/Constants'
+import { BASE_API } from '../utils/constants'
 
 export const getScheduled = () => axios.get(`${BASE_API}/schedule`)
 
@@ -11,10 +11,4 @@ export const getGenre = (animeId, pageId) => axios.get(`${BASE_API}/genre/anime/
 
 export const getAnimeByTypeAndId = (pageType, id) => axios.get(`https://api.jikan.moe/v3/${pageType}/${id}`)
 
-//export const searchAnime = (query, timeout) => axios.get('https://api.jikan.moe/v3/search/anime?q=' + query, {timeout: timeout})
-export const searchAnime = (query, timeout) => {
-    setTimeout(() => {
-        console.log('query: ', query)
-    }, 1000)
-    return axios.get('https://api.jikan.moe/v3/search/anime?q=' + query, {timeout: timeout})
-}
+export const searchAnime = (query, timeout) => axios.get('https://api.jikan.moe/v3/search/anime?q=' + query, {timeout: timeout})

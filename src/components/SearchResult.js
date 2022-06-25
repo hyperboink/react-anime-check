@@ -3,20 +3,23 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { search } from '../actions/search';
+import Loader from '../components/Loader'
 
 export default function SearchResultPage() {
     const params = new URLSearchParams(useLocation().search)
     const query = params.get('q')
-    const { keyword, results } = useSelector(state => state.search)
+    const { results, loading } = useSelector(state => state.search)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(search(query || keyword))
-    }, [dispatch, query, keyword])
+        dispatch(search(query))
+    }, [dispatch, query])
 
     return (
         <>
-            {results && results.length ? results.map((result) => (
+            {loading 
+                ? <Loader /> 
+                : ( results && results.length ? results.map((result) => (
                     <div key={result.mal_id} className="search-result flex">
                         <div className="search-left">
                             <Link className="anime-link" to={'/page/anime/' + result.mal_id}>
@@ -34,7 +37,7 @@ export default function SearchResultPage() {
                         <h3>Search again or try another?</h3>
                     </div>
                 )
-            }
+            )}
         </>
     )
 }

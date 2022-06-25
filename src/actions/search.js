@@ -6,7 +6,7 @@ export const search = (keyword) => ({
 })
 
 export const setSearchResult = (keyword, results) => ({
-    type: 'SET_SEARCH_RESULT',
+    type: 'SEARCH_SUCCESS',
     keyword,
     results
 })
