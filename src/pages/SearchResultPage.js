@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
-import { getParameterByName } from '../components/utils/Utils';
-import { searchAnime } from '../services/anime';
+import { getParameterByName } from '../utils/utils';
+import { searchAnime } from '../api';
 
 export default function SearchResultPage() {
     const [search, setSearch] = useState([])

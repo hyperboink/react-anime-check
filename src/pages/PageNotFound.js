@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { baseUrl } from '../components/utils/Utils'
+import { baseUrl } from '../utils/utils'
 
 export default function PageNotFound() {
     return (

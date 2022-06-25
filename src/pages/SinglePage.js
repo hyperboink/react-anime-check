@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom"
-import { formatDate } from '../components/utils/Date';
-import { SeparateArrayToLink, ifEmpty } from '../components/utils/Utils';
-import { getAnimeByTypeAndId } from '../services/anime';
+import { formatDate } from '../utils/date';
+import { SeparateArrayToLink, ifEmpty } from '../utils/utils';
+import { getAnimeByTypeAndId } from '../api';
 import Loader from '../components/Loader';
 
 export default function SinglePage() {

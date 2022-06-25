@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router'
 import Card from './Card'
 import Pagination from './Pagination'
 import Loader from './Loader'
-import { getGenre } from '../services/anime'
+import { getGenre } from '../api'
 
 export default function Genre() {
     const [genre, setGenre] = useState({})

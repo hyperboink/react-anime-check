@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { Link } from "react-router-dom"
-import { range, debounce } from './utils/Utils'
-import { BREAKPOINTS } from './Constants';
+import { range, debounce } from '../utils/utils'
+import { BREAKPOINTS } from '../utils/constants';
 import { config } from '../config'
 
 export default function Pagination({data}) {

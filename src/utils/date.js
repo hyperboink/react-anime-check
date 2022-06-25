@@ -1,4 +1,4 @@
-import { DAYS_OF_THE_WEEK } from '../Constants'
+import { DAYS_OF_THE_WEEK } from '../utils/constants'
 
 export const day = () => DAYS_OF_THE_WEEK[new Date().getDay()]
 

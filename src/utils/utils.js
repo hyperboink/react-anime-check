@@ -1,5 +1,5 @@
 import ReactHtmlParser from 'react-html-parser'
-import { config } from '../../config'
+import { config } from '../config'
 
 export const baseUrl = () => {
     let segment = /github/.test(window.location.href) ? '/' : '/'

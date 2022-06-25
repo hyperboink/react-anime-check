@@ -1,5 +1,5 @@
 import React from 'react'
-import { SeparateArrayToLink } from '../components/utils/Utils'
+import { SeparateArrayToLink } from '../utils/utils'
 import { useParams, useHistory } from "react-router-dom"
 
 export default function Card({detail}) {

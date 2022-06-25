@@ -1,28 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchUpcoming } from '../actions/upcoming'
 import Card from './Card'
-import { getUpcoming } from '../services/anime'
 
 export default function Upcoming() {
-    const [upcoming, setUpcoming] = useState([])
+    const { upcoming } = useSelector(state => state.upcoming)
+    const dispatch = useDispatch()
 
     useEffect(() =>{
-        let unmount = false
-
-        getUpcoming()
-            .then((res) => {
-                if(unmount) return
-                setUpcoming(res.data)
-            })
-            .catch(err => console.log(err))
-        
-        return _ => {
-            unmount = true
-        }
-    }, [])
+        dispatch(fetchUpcoming())
+    }, [dispatch])
 
     return (
         <>
-            {upcoming.anime ? upcoming.anime.map(anime => 
+            {upcoming?.anime ? upcoming.anime.map(anime => 
                 <Card key={anime.mal_id} detail={anime} />
             ) : ''}
         </>

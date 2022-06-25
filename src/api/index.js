@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { BASE_API } from '../components/Constants'
 
-export const getScheduled = _ => axios.get(`${BASE_API}/schedule`)
+export const getScheduled = () => axios.get(`${BASE_API}/schedule`)
 
-export const getUpcoming = _ => axios.get(`${BASE_API}/season/later`)
+export const getUpcoming = () => axios.get(`${BASE_API}/season/later`)
 
-export const getTopRated = type => axios.get(`${BASE_API}/top/${type}`)
+export const getTopRated = source => axios.get(`${BASE_API}/top/${source}`)
 
 export const getGenre = (animeId, pageId) => axios.get(`${BASE_API}/genre/anime/${animeId}/${pageId}`)
 

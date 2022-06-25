@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../components/Search'
-import { debounce } from '../components/utils/Utils'
+import { debounce } from '../utils/utils'
 
 export default function Header() {
     const [offset, setOffset] = useState(window.pageYOffset)

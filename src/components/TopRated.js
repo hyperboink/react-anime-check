@@ -1,37 +1,28 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Card from './Card'
-import { getTopRated } from '../services/anime'
+import { fetchTopRated } from '../actions/topRated'
 
 export default function TopRated() {
-    const [topRated, setTopRated] = useState([])
+    const { topRated } = useSelector(state => state.topRated)
+    const dispatch = useDispatch()
     const { type } = useParams()
-    const param = type ? type : 'anime'
+    const param = type || 'anime'
 
     useEffect(() => {
-        let unmount = false
-
-        getTopRated(param)
-            .then((res) => {
-                if(unmount) return
-                setTopRated(res.data)
-            })
-            .catch(err => console.log(err))
-        
-        return _ => {
-            unmount = true
-        }
-    }, [param])
+        dispatch(fetchTopRated(param))
+    }, [dispatch, param])
 
     return (
         <div id="content">
             <div className="box">
                 <div className="head">
-                    <h2 className="text-capitalize">Top Rated 50 {param}</h2>
+                    <h2 className="text-capitalize">Top Rated {topRated?.top.length} {param}</h2>
                 </div>
 
                 <div className="anime-cards">
-                    {topRated.top ? topRated.top.map(anime => 
+                    {topRated?.top ? topRated.top.map(anime => 
                         <Card key={anime.mal_id} 
                             detail={anime}
                             noEpsTag={param !== 'anime' && param !== 'manga'}/>
