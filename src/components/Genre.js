@@ -1,42 +1,29 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useParams, useHistory } from 'react-router'
+import { useSelector, useDispatch } from 'react-redux'
 import Card from './Card'
 import Pagination from './Pagination'
 import Loader from './Loader'
-import { getGenre } from '../api'
+import { fetchGenre } from '../actions/genre'
 
 export default function Genre() {
-    const [genre, setGenre] = useState({})
-    const [isLoading, setLoading] = useState(true)
+    const dispatch = useDispatch()
+    const state = useSelector(state => state)
+    const { genre, loading } = state.genre
     const { id, page }  = useParams()
     const history = useHistory()
 
-    useEffect(() =>{
-        let unmount = false
-        setLoading(true)
-
-        getGenre(id, page).then((res) => {
-            if(unmount) return
-            setGenre(res.data)
-            setLoading(false)
-        }).catch((err) => {
-            console.log(err);
-            setLoading(false)
-            history.goBack()
-        })
-
-        return _ => {
-            unmount = true
-        }
-    }, [id, page, history])
+    useEffect(() => {
+        dispatch(fetchGenre(id, page, history))   
+    }, [dispatch, id, page, history])
 
     return (
         <>
             <div className="head flex anime-pagination-head">
-                <h2>{genre.mal_url ? 'Genre: ' + genre.mal_url.name : ''}</h2>
+                <h2>{genre?.mal_url ? 'Genre: ' + genre.mal_url.name : ''}</h2>
 
                 <div className="anime-card-pagination">
-                    {genre.item_count ? (
+                    {genre?.item_count ? (
                         <Pagination data={{
                             total: genre.item_count,
                             items: genre.anime,
@@ -50,18 +37,18 @@ export default function Genre() {
             </div>
             
             <div className="anime-pagination-body">
-                {isLoading ? (
+                {loading ? (
                     <Loader/>
                 ) : ''}
                 <div className="anime-cards">
-                    {genre.anime ? genre.anime.map(genre => 
+                    {genre?.anime ? genre.anime.map(genre => 
                         <Card key={genre.mal_id} detail={genre} />
                     ) : ''}
                 </div>
             </div>
 
             <div className="anime-card-pagination">
-                {genre.item_count ? (
+                {genre?.item_count ? (
                     <Pagination data={{
                         total: genre.item_count,
                         items: genre.anime,

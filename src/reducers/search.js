@@ -1,10 +1,9 @@
-const initialState = {
+const search = (state = {
     keyword: '',
     results: [],
-    loading: false
-}
-
-const search = (state = initialState, action) => {
+    loading: false,
+    error: {}
+}, action) => {
     switch(action.type){
         case 'SEARCH':
             return {

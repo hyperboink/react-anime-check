@@ -1,13 +1,16 @@
 import { call, put, takeLatest } from "@redux-saga/core/effects"
+import { safe } from "../utils/safe";
 import { searchAnime } from "../api"
 import { SEARCH, setSearchResult } from "../actions/search"
+import { setError } from "../actions/error";
 
 export function* fetchSearchResult({ keyword }){
-    try {
-        const response = yield call(searchAnime, keyword)
+    const {response, error} = yield safe(call(searchAnime, keyword))
+
+    if(response){
         yield put(setSearchResult(keyword, response.data.results))
-    } catch (error) {
-        console.log(error);
+    }else{
+        yield put(setError(error))
     }
 }
 

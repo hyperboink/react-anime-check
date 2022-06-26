@@ -2,10 +2,11 @@ export const FETCH_GENRE = 'FETCH_GENRE'
 
 export const SET_GENRE = 'SET_GENRE'
 
-export const fetchGenre = (id, page) => ({
+export const fetchGenre = (id, page, history) => ({
     type: FETCH_GENRE,
     id,
-    page
+    page,
+    history
 })
 
 export const setGenre = (genre) => ({

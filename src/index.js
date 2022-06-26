@@ -10,7 +10,7 @@ import rootReducers from './reducers'
 
 const sagaMiddleWare = createSagaMiddleware();
 
-const middlewares = [sagaMiddleWare, ];
+const middlewares = [sagaMiddleWare];
 
 const store = createStore(
   rootReducers,

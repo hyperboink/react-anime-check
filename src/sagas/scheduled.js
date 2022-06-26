@@ -1,13 +1,16 @@
-import { call, put, takeLatest } from "@redux-saga/core/effects";
-import { getScheduled } from '../api';
-import { FETCH_SCHEDULED, setScheduled } from "../actions/scheduled";
+import { call, put, takeLatest } from "@redux-saga/core/effects"
+import { safe } from "../utils/safe"
+import { getScheduled } from '../api'
+import { FETCH_SCHEDULED, setScheduled } from "../actions/scheduled"
+import { setError } from "../actions/error"
 
 export function* fetchScheduled() {
-    try {
-        const response = yield call(getScheduled)
+    const {response, error} = yield safe(call(getScheduled))
+
+    if(response){
         yield put(setScheduled(response.data))
-    } catch (error) {
-        console.log(error);
+    }else{
+        yield put(setError(error))
     }
 }
 
