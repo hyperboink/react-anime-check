@@ -5,12 +5,12 @@ import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Loader from "./components/Loader"
 
-const Homepage = React.lazy(() => import('./pages/HomePage'))
+const LatestPage = React.lazy(() => import('./pages/LatestPage'))
 const UpcomingPage = React.lazy(() => import('./pages/UpcomingPage'))
 const TopRatedPage = React.lazy(() => import('./pages/TopRatedPage'))
 const GenreListPage = React.lazy(() => import('./pages/GenreListPage'))
 const GenrePage = React.lazy(() => import('./pages/GenrePage'))
-const SinglePage = React.lazy(() => import('./pages/SinglePage'))
+const DetailsPage = React.lazy(() => import('./pages/DetailsPage'))
 const SearchResultPage = React.lazy(() => import('./pages/SearchResultPage'))
 const PageNotFound = React.lazy(() => import('./pages/PageNotFound'))
 
@@ -24,13 +24,13 @@ function App() {
           <div id="main">
             <Suspense fallback={<Loader />}>
               <Switch>
-                  <Route exact path="/" component={Homepage}></Route>
+                  <Route exact path="/" component={LatestPage}></Route>
                   <Route path="/upcoming" component={UpcomingPage}></Route>
                   <Route path="/top-rated/:type" component={TopRatedPage}></Route>
                   <Route path="/top-rated" component={TopRatedPage}></Route>
                   <Route path="/genres" component={GenreListPage}></Route>
                   <Route path="/genre/anime/:id/:page" component={GenrePage}></Route>
-                  <Route path="/page/:type/:id" component={SinglePage} ></Route>
+                  <Route path="/page/:type/:id" component={DetailsPage} ></Route>
                   <Route path="/search" component={SearchResultPage}></Route>
                   <Route component={PageNotFound} />
               </Switch>

@@ -18,7 +18,7 @@ export default function Card({detail}) {
         <div className="anime anime-card">
             <div className="anime-image">
                 <a href={'page/'+param+'/' + detail.mal_id} className="anime-card-link" onClick={redirectToPage}>
-                    <img src={detail.image_url} alt=""/>
+                    <img src={detail?.images?.webp.image_url || detail.image_url} alt=""/>
                     {isAnime ? <span className="anime-eps">{detail.episodes ? `${detail.episodes} EPS` : '?? EPS'}</span> : ''}
                     
                 </a>

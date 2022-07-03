@@ -39,6 +39,13 @@ export const SeparateArrayToLink = (array, options) => {
     }).join(options.separator) : '')
 }
 
+export const transformRelations = (array, options) => {
+    return ReactHtmlParser(array ? array.map(arr => {
+        let type = options.subType ? `${arr.type}/` : '';
+        return options.link ? `<a class="anime-link" href="${options.link || ''}${type}${arr.mal_id || ''}${options.page || ''}">${arr.name || ''}</a>` : (arr.name || '')
+    }).join(options.separator) : '')
+}
+
 export const debounce = (fn, ms) => {
     let timer
 

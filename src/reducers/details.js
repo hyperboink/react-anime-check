@@ -1,19 +1,20 @@
-export const topRated = (state = { loading: false }, action) => {
+export const details = (state = { loading: false }, action) => {
     switch(action.type){
-        case 'FETCH_TOP_RATED':
+        case 'FETCH_DETAILS':
             return {
                 ...state,
                 loading: true
             }
-        case 'SET_TOP_RATED':
+        case 'SET_DETAILS':
             return {
                 ...state,
-                topRated: action.topRated,
+                details: action.details,
                 loading: false
             }
         default:
             return state
+        
     }
 }
 
-export default topRated
+export default details

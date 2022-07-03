@@ -1,4 +1,4 @@
-export const DAYS_OF_THE_WEEK = ['sunday', 'monday', 'tuesday', 'wednesday' , 'thursday', 'friday', 'saturday']
+export const DAYS_OF_THE_WEEK = ['sunday', 'monday', 'tuesday', 'wednesday' , 'thursday', 'friday', 'saturday', 'sunday']
 
 export const BREAKPOINTS = {
     desktop: 1200,
@@ -8,4 +8,4 @@ export const BREAKPOINTS = {
     smallMobile: 320
 }
 
-export const BASE_API = 'https://api.jikan.moe/v3'
+export const BASE_API = 'https://api.jikan.moe/v4'

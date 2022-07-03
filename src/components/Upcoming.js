@@ -13,7 +13,7 @@ export default function Upcoming() {
 
     return (
         <>
-            {upcoming?.anime ? upcoming.anime.map(anime => 
+            {upcoming?.data ? upcoming.data.map(anime => 
                 <Card key={anime.mal_id} detail={anime} />
             ) : ''}
         </>

@@ -19,16 +19,16 @@ export default function SearchResultPage() {
         <>
             {loading 
                 ? <Loader /> 
-                : ( results && results.length ? results.map((result) => (
+                : ( results?.data?.length ? results.data.map((result) => (
                     <div key={result.mal_id} className="search-result flex">
                         <div className="search-left">
                             <Link className="anime-link" to={'/page/anime/' + result.mal_id}>
-                                <img src={result.image_url} alt="" />
+                                <img src={result.images.webp.image_url} alt="" />
                             </Link>
                         </div>
                         <div className="search-right">
                             <h3><Link className="anime-link" to={'/page/anime/' + result.mal_id}>{result.title}</Link></h3>
-                            <p className="anime-excerpt">{result.synopsis}</p>
+                            <p className="anime-excerpt">{result.synopsis || 'No info yet.'}</p>
                             <Link className="anime-btn" to={'/page/anime/' + result.mal_id}>Read More</Link>
                         </div>
                     </div>

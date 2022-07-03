@@ -273,6 +273,10 @@ h1#logo a {
 	min-height: 500px;
 }
 
+#content .box {
+	min-height: 500px;
+}
+
 .page-not-found{
 	align-items: center;
 	justify-content: center;

@@ -8,7 +8,7 @@ export function* fetchSearchResult({ keyword }){
     const {response, error} = yield safe(call(searchAnime, keyword))
 
     if(response){
-        yield put(setSearchResult(keyword, response.data.results))
+        yield put(setSearchResult(keyword, response.data))
     }else{
         yield put(setError(error))
     }
