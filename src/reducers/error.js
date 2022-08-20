@@ -1,6 +1,8 @@
+import { SET_ERROR } from "../actions/error"
+
 export const error = (state = {}, action) => {
     switch(action.type){
-        case 'SET_ERROR':
+        case SET_ERROR:
             return {
                 ...state,
                 error: action.error

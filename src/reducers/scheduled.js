@@ -1,6 +1,8 @@
+import { SET_SCHEDULED } from "../actions/scheduled"
+
 export const scheduled = (state = {}, action) => {
     switch(action.type){
-        case 'SET_SCHEDULED':
+        case SET_SCHEDULED:
             return {
                 ...state,
                 scheduled: action.scheduled

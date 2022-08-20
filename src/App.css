@@ -397,6 +397,7 @@ h1#logo a {
 	width: auto !important;
 	color: #e95370;
 	text-decoration: none;
+	vertical-align: top;
 }
 .anime-link:hover{
 	text-decoration: underline;

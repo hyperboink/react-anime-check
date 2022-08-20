@@ -1,3 +1,5 @@
+import { SEARCH, SEARCH_SUCCESS } from "../actions/search"
+
 const search = (state = {
     keyword: '',
     results: [],
@@ -5,13 +7,13 @@ const search = (state = {
     error: {}
 }, action) => {
     switch(action.type){
-        case 'SEARCH':
+        case SEARCH:
             return {
                 ...state,
                 keyword: action.keyword,
                 loading: true
             }
-        case 'SEARCH_SUCCESS':
+        case SEARCH_SUCCESS:
             return {
                 ...state,
                 keyword: action.keyword,

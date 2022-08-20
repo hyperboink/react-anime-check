@@ -29,7 +29,7 @@ function App() {
                   <Route path="/top-rated/:type" component={TopRatedPage}></Route>
                   <Route path="/top-rated" component={TopRatedPage}></Route>
                   <Route path="/genres" component={GenreListPage}></Route>
-                  <Route path="/genre/anime/:id/:page" component={GenrePage}></Route>
+                  <Route path="/genre/:name/:id/:pageId" component={GenrePage}></Route>
                   <Route path="/page/:type/:id" component={DetailsPage} ></Route>
                   <Route path="/search" component={SearchResultPage}></Route>
                   <Route component={PageNotFound} />

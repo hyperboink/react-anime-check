@@ -5,29 +5,32 @@ import Card from './Card'
 import Pagination from './Pagination'
 import Loader from './Loader'
 import { fetchGenre } from '../actions/genre'
+import { title } from '../utils/utils'
 
 export default function Genre() {
     const dispatch = useDispatch()
     const state = useSelector(state => state)
     const { genre, loading } = state.genre
-    const { id, page }  = useParams()
+    const { name, id, pageId }  = useParams()
     const history = useHistory()
 
     useEffect(() => {
-        dispatch(fetchGenre(id, page, history))   
-    }, [dispatch, id, page, history])
+        dispatch(fetchGenre(name, id, pageId, history))   
+    }, [dispatch, name, id, pageId, history])
 
     return (
         <>
+            {console.log(genre)}
             <div className="head flex anime-pagination-head">
-                <h2>{genre?.mal_url ? 'Genre: ' + genre.mal_url.name : ''}</h2>
+                <h2 className="text-capitalize">Genre: {title(name)}</h2>
 
                 <div className="anime-card-pagination">
-                    {genre?.item_count ? (
+                    {genre?.data.length ? (
                         <Pagination data={{
-                            total: genre.item_count,
-                            items: genre.anime,
-                            baseLink: '/genre/anime/',
+                            total: genre.pagination.items.total,
+                            items: genre.data,
+                            baseLink: `/genre/${name}`,
+                            name: name,
                             responsive: {
                                 mobile: 3
                             }
@@ -41,18 +44,18 @@ export default function Genre() {
                     <Loader/>
                 ) : ''}
                 <div className="anime-cards">
-                    {genre?.anime ? genre.anime.map(genre => 
+                    {genre?.data.length ? genre.data.map(genre => 
                         <Card key={genre.mal_id} detail={genre} />
                     ) : ''}
                 </div>
             </div>
 
             <div className="anime-card-pagination">
-                {genre?.item_count ? (
+                {genre?.data.length ? (
                     <Pagination data={{
-                        total: genre.item_count,
-                        items: genre.anime,
-                        baseLink: '/genre/anime/',
+                        total: genre.pagination.items.total,
+                        items: genre.data,
+                        baseLink: `/genre/${name}`,
                         responsive: {
                             mobile: 3
                         }

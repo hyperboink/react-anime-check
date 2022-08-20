@@ -9,7 +9,9 @@ export const getTopRated = source => axios.get(`${BASE_API}/top/${source}`)
 
 export const getSeason = () => axios.get(`${BASE_API}/seasons/now`)
 
-export const getGenre = (animeId, pageId) => axios.get(`https://api.jikan.moe/v3/genre/anime/${animeId}/${pageId}`)
+export const getGenre = (id, pageId) => axios.get(`${BASE_API}/anime?genres=${id}&page=${pageId}`)
+
+export const getGenreList = () => axios.get(`${BASE_API}/genres/anime`)
 
 export const getDetailsByTypeAndId = (pageType, id, extraSegment) => axios.get(`${BASE_API}/${pageType}/${id}${extraSegment}`)
 

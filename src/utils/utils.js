@@ -33,9 +33,10 @@ export const range = (start, end) => {
 }
 
 export const SeparateArrayToLink = (array, options) => {
+    console.log(array);
     return ReactHtmlParser(array ? array.map(arr => {
         let type = options.subType ? `${arr.type}/` : '';
-        return options.link ? `<a class="anime-link" href="${options.link || ''}${type}${arr.mal_id || ''}${options.page || ''}">${arr.name || ''}</a>` : (arr.name || '')
+        return options.link ? `<a class="anime-link" href="${options.link || ''}${slug(arr.name) + '/' || ''}${type}${arr.mal_id || ''}${options.page || ''}">${arr.name || ''}</a>` : (arr.name || '')
     }).join(options.separator) : '')
 }
 
@@ -44,6 +45,18 @@ export const transformRelations = (array, options) => {
         let type = options.subType ? `${arr.type}/` : '';
         return options.link ? `<a class="anime-link" href="${options.link || ''}${type}${arr.mal_id || ''}${options.page || ''}">${arr.name || ''}</a>` : (arr.name || '')
     }).join(options.separator) : '')
+}
+
+export const title = (text) => {
+    return text
+        .replace('-', ' ');
+}
+
+export const slug = (text) => {
+    return text
+        .replace(/(\s|&)/, '-')
+        .replace(/(\(|\))/g, '')
+        .toLowerCase();
 }
 
 export const debounce = (fn, ms) => {

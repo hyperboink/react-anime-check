@@ -30,7 +30,7 @@ export default function Card({detail}) {
                     <a className="anime-link" href={'/page/'+param+'/' + detail.mal_id} onClick={redirectToPage}>{detail.title}</a>
                 </div>
                 {detail.genres ?(
-                    <div className="anime-genre">{SeparateArrayToLink(detail.genres, {separator: '', link: '#/genre/anime/', page: '/1'})}</div>
+                    <div className="anime-genre">{SeparateArrayToLink(detail.genres, {separator: '', link: '#/genre/', page: '/1'})}</div>
                 ) : ''}
             </div>
             

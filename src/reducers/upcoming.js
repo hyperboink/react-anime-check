@@ -1,6 +1,8 @@
+import { SET_UPCOMING } from "../actions/upcoming"
+
 export const upcoming = (state = {}, action) => {
     switch(action.type){
-        case 'SET_UPCOMING':
+        case SET_UPCOMING:
             return {
                 ...state,
                 upcoming: action.upcoming

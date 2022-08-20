@@ -1,6 +1,8 @@
+import { SET_SEASON } from "../actions/season"
+
 const season = (state = {}, action) => {
     switch(action.type){
-        case 'SET_SEASON':
+        case SET_SEASON:
             return {
                 ...state,
                 season: action.season
